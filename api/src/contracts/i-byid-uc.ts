@@ -1,4 +1,4 @@
-// Operações por ID (get, delete)
+// By Id operations (get, delete)
 export interface IByIdUseCase<TOutput = void> {
   perform(id: string): Promise<TOutput>;
 }

@@ -1,11 +1,11 @@
 import { IByIdUseCase } from '../../../contracts/i-byid-uc';
 import { IRepository } from '../../../contracts/i-repository';
-import { Teacher } from '../../entities/Teacher';
+import { Classroom } from '../../entities/Classroom';
 
-export class DeleteTeacherUseCase implements IByIdUseCase<void> {
-  private repository: IRepository<Teacher, string>;
+export class DeleteClassroomUseCase implements IByIdUseCase<void> {
+  private repository: IRepository<Classroom, string>;
 
-  constructor(repository: IRepository<Teacher, string>) {
+  constructor(repository: IRepository<Classroom, string>) {
     this.repository = repository;
   }
 

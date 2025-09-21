@@ -1,4 +1,4 @@
-// Consultas que só lêem dados (list, search)
+// Read operations (list, search)
 export interface IQueryUseCase<TOutput> {
   perform(): Promise<TOutput>;
 }
