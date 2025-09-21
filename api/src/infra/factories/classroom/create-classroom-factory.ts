@@ -1,4 +1,4 @@
-import { CreateClasroomController } from '../../../controllers/clasroom/create-clasroom-controller';
+import { CreateClasroomController } from '../../../controllers/classroom/create-clasroom-controller';
 import { CreateClassroomUseCase } from '../../../domain/usecases/clasroom/create-clasroom-uc';
 import { ClassroomRepository } from '../../../repositories/classroom-repository';
 

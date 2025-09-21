@@ -1,4 +1,4 @@
-import { ListClassroomsController } from '../../../controllers/clasroom/list-classrooms-controller';
+import { ListClassroomsController } from '../../../controllers/classroom/list-classrooms-controller';
 import { ListClassroomsUseCase } from '../../../domain/usecases/clasroom/list-classrooms-us';
 import { ClassroomRepository } from '../../../repositories/classroom-repository';
 

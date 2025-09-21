@@ -1,4 +1,4 @@
-import { DeleteClasssroomController } from '../../../controllers/clasroom/delete-classroom-controller';
+import { DeleteClasssroomController } from '../../../controllers/classroom/delete-classroom-controller';
 import { DeleteClassroomUseCase } from '../../../domain/usecases/clasroom/delete-classroom-uc';
 import { ClassroomRepository } from '../../../repositories/classroom-repository';
 

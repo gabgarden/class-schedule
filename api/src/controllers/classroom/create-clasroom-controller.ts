@@ -1,4 +1,4 @@
-import { Classroom } from './../../domain/entities/Classroom';
+import { Classroom } from '../../domain/entities/Classroom';
 import { Request, response, Response } from 'express';
 import { CreateClasroomDTO } from '../../domain/dtos/create-classroom-dto';
 import { ICommandUseCase } from '../../contracts/i-command-uc';
