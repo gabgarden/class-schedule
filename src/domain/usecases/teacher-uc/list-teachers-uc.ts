@@ -1,4 +1,4 @@
-import { IQueryUseCase } from './../../../contracts/i-query-uc';
+import { IQueryUseCase } from '../../../contracts/i-query-uc';
 import { IRepository } from '../../../contracts/i-repository';
 import { Teacher } from '../../entities/Teacher';
 

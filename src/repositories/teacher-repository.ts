@@ -1,5 +1,5 @@
 import { Types } from 'mongoose';
-import { Teacher } from './../domain/entities/Teacher';
+import { Teacher } from '../domain/entities/Teacher';
 import { IRepository } from '../contracts/i-repository';
 import teacherSchema from '../infra/schemas/teacher-schema';
 
