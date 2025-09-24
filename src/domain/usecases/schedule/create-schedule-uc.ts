@@ -37,19 +37,21 @@ export class CreateScheduleUseCase
       throw new Error('Classroom not found');
     }
 
-    const schedule: Schedule = {
+    //CREATE DATE OBJECT
+    const scheduledDate = new Date(dto.scheduledDate);
+
+    const schedule = new Schedule(
       teacher,
       classroom,
-      scheduledDate: dto.scheduledDate,
-      dayOfWeek: dto.dayOfWeek,
-      period: dto.period,
-      subject: dto.subject,
-      description: dto.description,
-      maxStudents: dto.maxStudents,
-      status: ScheduleStatus.ACTIVE,
-      isRecurring: dto.isRecurring,
-      recurrenceEndDate: dto.recurrenceEndDate,
-    };
+      scheduledDate,
+      dto.period,
+      dto.subject,
+      ScheduleStatus.ACTIVE,
+      dto.isRecurring,
+      dto.description,
+      dto.maxStudents,
+      dto.recurrenceEndDate
+    );
 
     return await this.scheduleRepository.create(schedule);
   }
