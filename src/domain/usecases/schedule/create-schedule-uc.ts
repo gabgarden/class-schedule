@@ -23,6 +23,13 @@ export class CreateScheduleUseCase
   }
 
   async perform(dto: CreateScheduleDTO): Promise<Schedule> {
+    //CREATE DATE OBJECTs
+    const scheduledDate = new Date(dto.scheduledDate);
+
+    let recurrenceEndDate: Date | undefined;
+    if (dto.recurrenceEndDate && dto.recurrenceEndDate.trim() !== '') {
+      recurrenceEndDate = new Date(dto.recurrenceEndDate);
+    }
     //BUSINESS LOGIC
 
     //MAKE SURE TEACHER EXISTS
@@ -37,21 +44,21 @@ export class CreateScheduleUseCase
       throw new Error('Classroom not found');
     }
 
+    if (scheduledDate < new Date()) {
+      throw new Error('Scheduled date cannot be in the past');
+    }
+
     //IF RECURRING, RECURRENCE END DATE MUST BE PROVIDED
-    if (dto.isRecurring && !dto.recurrenceEndDate) {
+    if (dto.isRecurring && !recurrenceEndDate) {
       throw new Error(
         'Recurrence end date required when schedule is recurring'
       );
     }
 
     //IF RECURRENCE END DATE IS PROVIDED, IT MUST BE AFTER SCHEDULED DATE
-    if (dto.recurrenceEndDate && dto.recurrenceEndDate <= dto.scheduledDate) {
+    if (recurrenceEndDate && recurrenceEndDate <= scheduledDate) {
       throw new Error('Recurrence end date must be after scheduled date');
     }
-    //CREATE DATE OBJECT
-    const scheduledDate = new Date(dto.scheduledDate);
-
-    const recurrenceEndDate = new Date(dto.recurrenceEndDate || '');
 
     const schedule = new Schedule(
       teacher,
