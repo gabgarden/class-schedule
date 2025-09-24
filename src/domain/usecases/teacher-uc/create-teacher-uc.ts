@@ -13,6 +13,7 @@ export class CreateTeacherUseCase
   }
 
   async perform(data: CreateTeacherDTO): Promise<Teacher> {
-    return await this.repository.create(data);
+    const teacher = new Teacher(data.name, data.email);
+    return await this.repository.create(teacher);
   }
 }

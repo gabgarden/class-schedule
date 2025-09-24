@@ -11,6 +11,7 @@ export class CreateClassroomUseCase
   }
   private repository: IRepository<Classroom, string>;
   async perform(data: CreateClasroomDTO): Promise<Classroom> {
-    return await this.repository.create(data);
+    const classroom = new Classroom(data.classroomNumber, data.capacity);
+    return await this.repository.create(classroom);
   }
 }
