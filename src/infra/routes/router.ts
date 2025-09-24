@@ -23,6 +23,6 @@ export default function router() {
   //mainRouter.use('/classrooms', UpdateClassroomRoute());
 
   //Schedules routes
-  mainRouter.use('/schedule', CreateScheduleRoute());
+  mainRouter.use('/schedules', CreateScheduleRoute());
   return mainRouter;
 }
