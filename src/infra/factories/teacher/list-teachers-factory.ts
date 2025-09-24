@@ -1,4 +1,4 @@
-import { ListTeachersUseCase } from '../../../domain/usecases/teacher-uc/list-teachers-uc';
+import { ListTeachersUseCase } from '../../../domain/usecases/teacher/list-teachers-uc';
 import { TeacherRepository } from '../../../repositories/teacher-repository';
 import { ListTeachersController } from '../../../controllers/teacher/list-teachers-controller';
 

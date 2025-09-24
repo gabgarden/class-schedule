@@ -1,5 +1,5 @@
 import { DeleteTeacherController } from '../../../controllers/teacher/delete-teacher-controller';
-import { DeleteTeacherUseCase } from '../../../domain/usecases/teacher-uc/delete-teacher-uc';
+import { DeleteTeacherUseCase } from '../../../domain/usecases/teacher/delete-teacher-uc';
 import { TeacherRepository } from '../../../repositories/teacher-repository';
 
 export function DeleteTeacherFactory() {
