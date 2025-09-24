@@ -37,8 +37,21 @@ export class CreateScheduleUseCase
       throw new Error('Classroom not found');
     }
 
+    //IF RECURRING, RECURRENCE END DATE MUST BE PROVIDED
+    if (dto.isRecurring && !dto.recurrenceEndDate) {
+      throw new Error(
+        'Recurrence end date required when schedule is recurring'
+      );
+    }
+
+    //IF RECURRENCE END DATE IS PROVIDED, IT MUST BE AFTER SCHEDULED DATE
+    if (dto.recurrenceEndDate && dto.recurrenceEndDate <= dto.scheduledDate) {
+      throw new Error('Recurrence end date must be after scheduled date');
+    }
     //CREATE DATE OBJECT
     const scheduledDate = new Date(dto.scheduledDate);
+
+    const recurrenceEndDate = new Date(dto.recurrenceEndDate || '');
 
     const schedule = new Schedule(
       teacher,
@@ -50,7 +63,7 @@ export class CreateScheduleUseCase
       dto.isRecurring,
       dto.description,
       dto.maxStudents,
-      dto.recurrenceEndDate
+      recurrenceEndDate
     );
 
     return await this.scheduleRepository.create(schedule);
