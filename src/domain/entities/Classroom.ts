@@ -1,9 +1,9 @@
 export class Classroom {
   classroomNumber: number;
-  capability: number;
+  capacity: number;
 
-  constructor(classroomNumber: number, capability: number) {
+  constructor(classroomNumber: number, capacity: number) {
     this.classroomNumber = classroomNumber;
-    this.capability = capability;
+    this.capacity = capacity;
   }
 }

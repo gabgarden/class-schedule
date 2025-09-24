@@ -9,7 +9,7 @@ const classroomSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
     },
-    capability: {
+    capacity: {
       type: Number,
       required: true,
     },

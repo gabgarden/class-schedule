@@ -1,18 +1,18 @@
 import { Classroom } from '../../domain/entities/Classroom';
 import { Request, response, Response } from 'express';
-import { CreateClasroomDTO } from '../../domain/dtos/create-classroom-dto';
+import { CreateClassroomDTO } from '../../domain/dtos/create-classroom-dto';
 import { ICommandUseCase } from '../../contracts/i-command-uc';
 
-export class CreateClasroomController {
-  usecase: ICommandUseCase<CreateClasroomDTO, Classroom>;
+export class CreateClassroomController {
+  usecase: ICommandUseCase<CreateClassroomDTO, Classroom>;
 
-  constructor(usecase: ICommandUseCase<CreateClasroomDTO, Classroom>) {
+  constructor(usecase: ICommandUseCase<CreateClassroomDTO, Classroom>) {
     this.usecase = usecase;
   }
 
   public async handle(req: Request, res: Response): Promise<Response> {
     try {
-      const data: CreateClasroomDTO = req.body;
+      const data: CreateClassroomDTO = req.body;
 
       const classroom = await this.usecase.perform(data);
 
