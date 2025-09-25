@@ -68,4 +68,30 @@ export class ScheduleRepository implements IRepository<Schedule, string> {
       throw new Error('Failed to list schedules');
     }
   }
+
+  async existsTeacherConflict(
+    teacherId: string,
+    scheduledDate: Date,
+    period: string
+  ): Promise<boolean> {
+    const conflict = await scheduleSchema.exists({
+      teacher: teacherId,
+      scheduledDate,
+      period,
+    });
+    return Boolean(conflict);
+  }
+
+  async existsClassroomConflict(
+    classroomId: string,
+    scheduledDate: Date,
+    period: string
+  ): Promise<boolean> {
+    const conflict = await scheduleSchema.exists({
+      classroom: classroomId,
+      scheduledDate,
+      period,
+    });
+    return Boolean(conflict);
+  }
 }
