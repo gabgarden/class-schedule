@@ -13,7 +13,11 @@ export class CreateTeacherUseCase
   }
 
   async perform(validatedDto: CreateTeacherDTO): Promise<Teacher> {
-    const teacher = new Teacher(validatedDto.name, validatedDto.email);
+    const teacher = new Teacher(
+      validatedDto.name,
+      validatedDto.email,
+      validatedDto.subjects
+    );
     return await this.repository.create(teacher);
   }
 }

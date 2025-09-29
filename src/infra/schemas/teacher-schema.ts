@@ -14,6 +14,10 @@ const teacherSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
     },
+    subjects: {
+      type: [String],
+      required: true,
+    },
   },
   {
     timestamps: true,

@@ -2,15 +2,14 @@ import {
   IsDateString,
   IsEnum,
   IsMongoId,
-  IsNotEmpty,
   IsOptional,
-  IsString,
   IsBoolean,
   IsInt,
   Min,
 } from 'class-validator';
 
-import { TimeSlotPeriod } from '../enums/time-slot-period-enum';
+import { TimeSlotPeriod } from '../../enums/time-slot-period-enum';
+import { SubjectsEnum } from '../../enums/subjetcs-enum';
 
 export class CreateScheduleDTO {
   @IsMongoId()
@@ -25,9 +24,8 @@ export class CreateScheduleDTO {
   @IsEnum(TimeSlotPeriod)
   period!: TimeSlotPeriod;
 
-  @IsString()
-  @IsNotEmpty()
-  subject!: string;
+  @IsEnum(SubjectsEnum)
+  subject!: SubjectsEnum;
 
   @IsOptional()
   description?: string;

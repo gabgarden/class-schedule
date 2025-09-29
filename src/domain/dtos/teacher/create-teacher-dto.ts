@@ -1,4 +1,5 @@
-import { IsEmail, IsString } from 'class-validator';
+import { IsEmail, IsEnum, IsString } from 'class-validator';
+import { SubjectsEnum } from '../../enums/subjetcs-enum';
 
 export class CreateTeacherDTO {
   @IsString()
@@ -6,4 +7,7 @@ export class CreateTeacherDTO {
 
   @IsEmail()
   email!: string;
+
+  @IsEnum(SubjectsEnum, { each: true })
+  subjects!: SubjectsEnum[];
 }
