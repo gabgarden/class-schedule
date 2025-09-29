@@ -1,32 +1,53 @@
-import { Request, Response } from 'express';
 import { IByIdUseCase } from '../../contracts/i-byid-uc';
+import { Request, Response } from 'express';
+import { DeleteTeacherDTO } from '../../domain/dtos/teacher/delete-teacher-dto';
+import { IValidationService } from '../../contracts/i-validation-service';
+import { NotFoundException } from '../../exceptions/not-found-exception';
+import { ValidationException } from '../../exceptions/validation-exception';
 
 export class DeleteTeacherController {
   usecase: IByIdUseCase<void>;
+  validationService: IValidationService;
 
-  constructor(usecase: IByIdUseCase<void>) {
+  constructor(
+    usecase: IByIdUseCase<void>,
+    validationService: IValidationService
+  ) {
     this.usecase = usecase;
+    this.validationService = validationService;
   }
 
   public async handle(req: Request, res: Response): Promise<Response> {
     try {
-      const id: string = req.params.id;
+      const validatedDto =
+        await this.validationService.validate<DeleteTeacherDTO>(
+          DeleteTeacherDTO,
+          req.body
+        );
 
-      if (!id) {
-        return res.status(400).json({ message: 'ID is required' }).end();
-      }
+      const { teacherId: id } = validatedDto;
 
       await this.usecase.perform(id);
 
       return res.status(204).end();
-    } catch (error) {
-      console.error(error);
-
-      if (error instanceof Error && error.message.includes('not found')) {
-        return res.status(404).json({ message: 'Teacher not found' }).end();
+    } catch (error: any) {
+      if (error instanceof ValidationException) {
+        return res.status(400).json({
+          message: error.message,
+          errors: error.errors,
+        });
       }
 
-      return res.status(500).json({ message: 'Internal server error' }).end();
+      if (error instanceof NotFoundException) {
+        return res.status(404).json({
+          message: error.message,
+        });
+      }
+
+      console.error('DeleteTeacherController error:', error);
+      return res.status(500).json({
+        message: error.message || 'Internal Server Error',
+      });
     }
   }
 }

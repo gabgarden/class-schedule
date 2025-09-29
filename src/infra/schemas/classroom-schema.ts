@@ -6,8 +6,7 @@ const classroomSchema = new mongoose.Schema(
       type: Number,
       required: true,
       unique: true,
-      lowercase: true,
-      trim: true,
+      min: 1,
     },
     capacity: {
       type: Number,

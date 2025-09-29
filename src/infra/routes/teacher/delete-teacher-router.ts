@@ -5,7 +5,7 @@ export function DeleteTeacherRouter() {
   const factory = DeleteTeacherFactory();
   const router = Router();
 
-  router.delete('/:id', async (req, res) => {
+  router.delete('/', async (req, res) => {
     try {
       await factory.handle(req, res);
     } catch (error) {

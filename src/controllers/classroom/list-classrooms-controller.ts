@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { IQueryUseCase } from '../../contracts/i-query-uc';
-import { Teacher } from '../../domain/entities/Teacher';
 import { Classroom } from '../../domain/entities/Classroom';
 
 export class ListClassroomsController {

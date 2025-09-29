@@ -6,6 +6,7 @@ import { CreateClassroomRoute } from './classroom/create-classroom-route';
 import { DeleteClassroomRoute } from './classroom/delete-clasroom-route';
 import { ListClassroomsRoute } from './classroom/list-classrooms-route';
 import { CreateScheduleRoute } from './schedule/create-schedule-route';
+import { UpdateClassroomRoute } from './classroom/update-classroom-route';
 
 export default function router() {
   const mainRouter = Router();
@@ -20,7 +21,7 @@ export default function router() {
   mainRouter.use('/classrooms', CreateClassroomRoute());
   mainRouter.use('/classrooms', DeleteClassroomRoute());
   mainRouter.use('/classrooms', ListClassroomsRoute());
-  //mainRouter.use('/classrooms', UpdateClassroomRoute());
+  mainRouter.use('/classrooms', UpdateClassroomRoute());
 
   //Schedules routes
   mainRouter.use('/schedules', CreateScheduleRoute());

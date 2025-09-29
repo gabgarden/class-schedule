@@ -22,10 +22,6 @@ export class ScheduleRepository implements IRepository<Schedule, string> {
 
   async findById(id: string): Promise<Schedule | null> {
     try {
-      if (!Types.ObjectId.isValid(id)) {
-        throw new Error('Invalid ID format');
-      }
-
       const schedule = await scheduleSchema
         .findById(id)
         .populate('teacher')
@@ -41,10 +37,6 @@ export class ScheduleRepository implements IRepository<Schedule, string> {
 
   async delete(id: string): Promise<boolean> {
     try {
-      if (!Types.ObjectId.isValid(id)) {
-        throw new Error('Invalid ID format');
-      }
-
       const result = await scheduleSchema.findByIdAndDelete(id).exec();
       return result !== null;
     } catch (error) {
@@ -93,5 +85,77 @@ export class ScheduleRepository implements IRepository<Schedule, string> {
       period,
     });
     return Boolean(conflict);
+  }
+
+  /*
+  async findByField(
+    field: keyof Schedule,
+    value: any
+  ): Promise<Schedule | null> {
+    try {
+      const result = await scheduleSchema
+        .findOne({ [field]: value })
+        .populate('teacher')
+        .populate('classroom')
+        .exec();
+      if (!result) return null;
+
+      const teacher = await this.teacherRe.findById(
+        result.teacher._id.toString()
+      );
+      const classroom = await this.classroomRepo.findById(
+        result.classroom._id.toString()
+      );
+
+      if (!teacher || !classroom) {
+        throw new Error('Related teacher or classroom not found');
+      }
+
+      const schedule = new Schedule(
+        teacher,
+        classroom,
+        result.scheduledDate,
+        result.period,
+        result.subject,
+        result.description,
+        result.maxStudents,
+        result.isRecurring,
+        result.recurrenceEndDate
+      );
+
+      return schedule;
+    } catch (error) {
+      console.error('Error finding schedule by field:', error);
+      throw new Error('Failed to query schedule');
+    }
+  }
+  
+  */
+
+  async findByField(): Promise<Schedule | null> {
+    throw new Error('Method not implemented.');
+  }
+
+  async update(id: string, data: Partial<Schedule>): Promise<Schedule> {
+    try {
+      if (!Types.ObjectId.isValid(id)) {
+        throw new Error('Invalid ID format');
+      }
+
+      const updatedSchedule = await scheduleSchema
+        .findByIdAndUpdate(id, data, { new: true })
+        .populate('teacher')
+        .populate('classroom')
+        .exec();
+
+      if (!updatedSchedule) {
+        throw new Error('Schedule not found');
+      }
+
+      return updatedSchedule.toObject<Schedule>();
+    } catch (error) {
+      console.error('Error updating schedule in database:', error);
+      throw new Error('Failed to update schedule');
+    }
   }
 }

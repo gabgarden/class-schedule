@@ -1,6 +1,6 @@
 import { ICommandUseCase } from '../../../contracts/i-command-uc';
 import { IRepository } from '../../../contracts/i-repository';
-import { CreateTeacherDTO } from '../../dtos/create-teacher-dto';
+import { CreateTeacherDTO } from '../../dtos/teacher/create-teacher-dto';
 import { Teacher } from '../../entities/Teacher';
 
 export class CreateTeacherUseCase
@@ -12,8 +12,8 @@ export class CreateTeacherUseCase
     this.repository = repository;
   }
 
-  async perform(data: CreateTeacherDTO): Promise<Teacher> {
-    const teacher = new Teacher(data.name, data.email);
+  async perform(validatedDto: CreateTeacherDTO): Promise<Teacher> {
+    const teacher = new Teacher(validatedDto.name, validatedDto.email);
     return await this.repository.create(teacher);
   }
 }

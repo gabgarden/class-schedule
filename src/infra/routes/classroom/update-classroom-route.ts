@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import { DeleteClassroomFactory } from '../../factories/classroom/delete-clasroom-factory';
+import { UpdateClassroomFactory } from '../../factories/classroom/update-classroom-factory';
 
-export function DeleteClassroomRoute() {
-  const factory = DeleteClassroomFactory();
+export function UpdateClassroomRoute() {
+  const factory = UpdateClassroomFactory();
   const router = Router();
 
-  router.delete('/', async (req, res) => {
+  router.patch('/', async (req, res) => {
     try {
       await factory.handle(req, res);
     } catch (error) {

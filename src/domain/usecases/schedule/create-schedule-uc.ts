@@ -1,9 +1,8 @@
-import { ScheduleDomainService } from './../../services/schedule-domain-service';
 import { Schedule } from '../../entities/Schedule';
 import { Teacher } from '../../entities/Teacher';
 import { Classroom } from '../../entities/Classroom';
 import { ScheduleStatus } from '../../enums/schedule-status-enum';
-import { CreateScheduleDTO } from '../../dtos/create-schedule-dto';
+import { CreateScheduleDTO } from '../../dtos/schedule/create-schedule-dto';
 import { IRepository } from '../../../contracts/i-repository';
 import { ICommandUseCase } from '../../../contracts/i-command-uc';
 import { IScheduleDomainService } from '../../../contracts/i-schedule-domain-service';
