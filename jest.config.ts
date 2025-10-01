@@ -10,7 +10,8 @@ const config: Config = {
   coverageDirectory: 'coverage',
   preset: 'ts-jest',
   rootDir: './',
-  roots: ['<rootDir>/src', '<rootDir>/src/__tests__'],
+  roots: ['<rootDir>/__tests__', '<rootDir>/src'],
+  testMatch: ['**/__tests__/**/*.test.ts', '**/__tests__/**/*.spec.ts'],
   watchman: true,
 };
 

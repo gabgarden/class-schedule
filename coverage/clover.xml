@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1759158455014" clover="3.2.0">
-  <project timestamp="1759158455014" name="All files">
-    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
+<coverage generated="1759205560571" clover="3.2.0">
+  <project timestamp="1759205560573" name="All files">
+    <metrics statements="21" coveredstatements="21" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3" elements="28" coveredelements="28" complexity="0" loc="21" ncloc="21" packages="3" files="3" classes="3"/>
+    <package name="controllers.classroom">
+      <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <file name="create-clasroom-controller.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\controllers\classroom\create-clasroom-controller.ts">
+        <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="23" count="7" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="32" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.dtos.classroom">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="create-classroom-dto.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\dtos\classroom\create-classroom-dto.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="exceptions">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="validation-exception.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\exceptions\validation-exception.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>
