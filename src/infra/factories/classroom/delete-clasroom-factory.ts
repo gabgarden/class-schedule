@@ -1,6 +1,6 @@
 import { DeleteClassroomController } from '../../../controllers/classroom/delete-classroom-controller';
 import { ValidationService } from '../../../domain/services/validation-service';
-import { DeleteClassroomUseCase } from '../../../domain/usecases/clasroom/delete-classroom-uc';
+import { DeleteClassroomUseCase } from '../../../domain/usecases/classroom/delete-classroom-uc';
 import { ClassroomRepository } from '../../../repositories/classroom-repository';
 
 export function DeleteClassroomFactory() {

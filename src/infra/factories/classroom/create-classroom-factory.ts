@@ -1,6 +1,6 @@
 import { CreateClassroomController } from '../../../controllers/classroom/create-clasroom-controller';
 import { ValidationService } from '../../../domain/services/validation-service';
-import { CreateClassroomUseCase } from '../../../domain/usecases/clasroom/create-clasroom-uc';
+import { CreateClassroomUseCase } from '../../../domain/usecases/classroom/create-clasroom-uc';
 import { ClassroomRepository } from '../../../repositories/classroom-repository';
 
 export function CreateClassroomFactory() {

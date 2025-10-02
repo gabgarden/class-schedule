@@ -129,7 +129,6 @@ export class ScheduleRepository implements IRepository<Schedule, string> {
       throw new Error('Failed to query schedule');
     }
   }
-  
   */
 
   async findByField(): Promise<Schedule | null> {

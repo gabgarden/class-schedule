@@ -3,19 +3,16 @@ import { IRepository } from '../../../contracts/i-repository';
 import { NotFoundException } from '../../../exceptions/not-found-exception';
 import { Teacher } from '../../entities/Teacher';
 
-export class DeleteTeacherUseCase implements IByIdUseCase<void> {
-  private repository: IRepository<Teacher, string>;
+export class FindByIdTeacherUseCase implements IByIdUseCase<Teacher> {
+  constructor(private readonly repository: IRepository<Teacher, string>) {}
 
-  constructor(repository: IRepository<Teacher, string>) {
-    this.repository = repository;
-  }
-
-  async perform(id: string): Promise<void> {
+  async perform(id: string): Promise<Teacher> {
     const teacher = await this.repository.findById(id);
 
     if (!teacher) {
       throw new NotFoundException('Teacher', id);
     }
-    await this.repository.delete(id);
+
+    return teacher;
   }
 }

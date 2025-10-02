@@ -1,6 +1,6 @@
 import { UpdateClassroomController } from '../../../controllers/classroom/update-classroom-controller';
 import { ValidationService } from '../../../domain/services/validation-service';
-import { UpdateClassroomUseCase } from '../../../domain/usecases/clasroom/update-classroom-uc';
+import { UpdateClassroomUseCase } from '../../../domain/usecases/classroom/update-classroom-uc';
 import { ClassroomRepository } from '../../../repositories/classroom-repository';
 
 export function UpdateClassroomFactory() {
