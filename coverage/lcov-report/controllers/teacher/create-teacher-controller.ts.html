@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for controllers/classroom/create-clasroom-controller.ts</title>
+    <title>Code coverage report for controllers/teacher/create-teacher-controller.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">controllers/classroom</a> create-clasroom-controller.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">controllers/teacher</a> create-teacher-controller.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -155,19 +155,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Request, Response } from 'express';
-import { CreateClassroomDTO } from '../../domain/dtos/classroom/create-classroom-dto';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Request, response, Response } from 'express';
+import { CreateTeacherDTO } from '../../domain/dtos/teacher/create-teacher-dto';
 import { ICommandUseCase } from '../../contracts/i-command-uc';
-import { Classroom } from '../../domain/entities/Classroom';
+import { Teacher } from '../../domain/entities/Teacher';
 import { IValidationService } from '../../contracts/i-validation-service';
 import { ValidationException } from '../../exceptions/validation-exception';
 &nbsp;
-export class CreateClassroomController {
-  private readonly usecase: ICommandUseCase&lt;CreateClassroomDTO, Classroom&gt;;
-  private readonly validationService: IValidationService;
+export class CreateTeacherController {
+  usecase: ICommandUseCase&lt;CreateTeacherDTO, Teacher&gt;;
+  validationService: IValidationService;
 &nbsp;
   constructor(
-    usecase: ICommandUseCase&lt;CreateClassroomDTO, Classroom&gt;,
+    usecase: ICommandUseCase&lt;CreateTeacherDTO, Teacher&gt;,
     validationService: IValidationService
   ) {
     this.usecase = usecase;
@@ -177,14 +177,14 @@ export class CreateClassroomController {
   public async handle(req: Request, res: Response): Promise&lt;Response&gt; {
     try {
       const validatedDto =
-        await this.validationService.validate&lt;CreateClassroomDTO&gt;(
-          CreateClassroomDTO,
+        await this.validationService.validate&lt;CreateTeacherDTO&gt;(
+          CreateTeacherDTO,
           req.body
         );
 &nbsp;
-      const classroom = await this.usecase.perform(validatedDto);
+      const teacher = await this.usecase.perform(validatedDto);
 &nbsp;
-      return res.status(201).json(classroom);
+      return res.status(201).json(teacher).end();
     } catch (error: any) {
       if (error instanceof ValidationException) {
         return res.status(400).json({

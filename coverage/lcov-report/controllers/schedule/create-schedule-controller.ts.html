@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for controllers/classroom/create-clasroom-controller.ts</title>
+    <title>Code coverage report for controllers/schedule/create-schedule-controller.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">controllers/classroom</a> create-clasroom-controller.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">controllers/schedule</a> create-schedule-controller.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
@@ -109,8 +109,9 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -119,84 +120,89 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Request, Response } from 'express';
-import { CreateClassroomDTO } from '../../domain/dtos/classroom/create-classroom-dto';
 import { ICommandUseCase } from '../../contracts/i-command-uc';
-import { Classroom } from '../../domain/entities/Classroom';
-import { IValidationService } from '../../contracts/i-validation-service';
-import { ValidationException } from '../../exceptions/validation-exception';
+import { CreateScheduleDTO } from '../../domain/dtos/schedule/create-schedule-dto';
+import { Schedule } from '../../domain/entities/Schedule';
+import { ScheduleConflictException } from '../../exceptions/schedule-conflict-exception';
 &nbsp;
-export class CreateClassroomController {
-  private readonly usecase: ICommandUseCase&lt;CreateClassroomDTO, Classroom&gt;;
-  private readonly validationService: IValidationService;
+export class CreateScheduleController {
+  private readonly usecase: ICommandUseCase&lt;CreateScheduleDTO, Schedule&gt;;
 &nbsp;
-  constructor(
-    usecase: ICommandUseCase&lt;CreateClassroomDTO, Classroom&gt;,
-    validationService: IValidationService
-  ) {
+  constructor(usecase: ICommandUseCase&lt;CreateScheduleDTO, Schedule&gt;) {
     this.usecase = usecase;
-    this.validationService = validationService;
   }
 &nbsp;
   public async handle(req: Request, res: Response): Promise&lt;Response&gt; {
     try {
-      const validatedDto =
-        await this.validationService.validate&lt;CreateClassroomDTO&gt;(
-          CreateClassroomDTO,
-          req.body
-        );
-&nbsp;
-      const classroom = await this.usecase.perform(validatedDto);
-&nbsp;
-      return res.status(201).json(classroom);
+      const data: CreateScheduleDTO = req.body;
+      const schedule = await this.usecase.perform(data);
+      return res.status(201).json(schedule);
     } catch (error: any) {
-      if (error instanceof ValidationException) {
-        return res.status(400).json({
+      if (error instanceof ScheduleConflictException) {
+        return res.status(409).json({
+          error: 'Schedule conflict',
           message: error.message,
-          errors: error.errors,
+          type: error.type,
+          details: error.details,
         });
       }
 &nbsp;
-      console.error('CreateClassroomController error:', error);
+      if (
+        error.message?.includes('not found') ||
+        error.message?.includes('cannot be in the past') ||
+        error.message?.includes('required when')
+      ) {
+        return res.status(422).json({
+          error: 'Business rule violation',
+          message: error.message,
+        });
+      }
 &nbsp;
+      // Erros desconhecidos (500 - Internal Server Error)
+      console.error('CreateScheduleController error:', error);
       return res.status(500).json({
-        message: error.message || 'Internal server error',
+        error: 'Internal server error',
+        message: 'An unexpected error occurred',
       });
     }
   }

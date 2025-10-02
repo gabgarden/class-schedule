@@ -1,49 +1,49 @@
 import { Request, Response } from 'express';
-import { CreateClassroomController } from '../../../src/controllers/classroom/create-clasroom-controller';
-import { CreateClassroomDTO } from '../../../src/domain/dtos/classroom/create-classroom-dto';
+import { UpdateClassroomController } from '../../../src/controllers/classroom/update-classroom-controller';
+import { UpdateClassroomDTO } from '../../../src/domain/dtos/classroom/update-classroom-dto';
 import { Classroom } from '../../../src/domain/entities/Classroom';
+import { IUpdateUseCase } from '../../../src/contracts/i-update-uc';
 import { IValidationService } from '../../../src/contracts/i-validation-service';
 import { ValidationException } from '../../../src/exceptions/validation-exception';
 
 // ========================================
-// STEP 1: Criar Test Doubles (Fakes)
+// STEP 1: Create Test Doubles (Fakes)
 // ========================================
 
-// Fake UseCase - simulates real behavior
-class FakeCreateClassroomUseCase {
+class FakeUpdateClassroomUseCase implements IUpdateUseCase<UpdateClassroomDTO, Classroom> {
   public shouldFail = false;
   public errorToThrow: Error | null = null;
   public performWasCalled = false;
-  public receivedDto: CreateClassroomDTO | null = null;
+  public receivedId: string | null = null;
+  public receivedDto: UpdateClassroomDTO | null = null;
 
-  async perform(dto: CreateClassroomDTO): Promise<Classroom> {
+  async perform(id: string, dto: UpdateClassroomDTO): Promise<Classroom> {
     this.performWasCalled = true;
+    this.receivedId = id;
     this.receivedDto = dto;
 
     if (this.shouldFail && this.errorToThrow) {
       throw this.errorToThrow;
     }
 
-    // Returns a fake classroom matching the schema
     return {
-      id: '123',
-      classroomNumber: dto.classroomNumber,
-      capacity: dto.capacity,
+      id,
+      classroomNumber: dto.classroomNumber || 101,
+      capacity: dto.capacity || 30,
       createdAt: new Date(),
       updatedAt: new Date(),
     } as Classroom;
   }
 
-  // Helper method to reset state between tests
   reset() {
     this.shouldFail = false;
     this.errorToThrow = null;
     this.performWasCalled = false;
+    this.receivedId = null;
     this.receivedDto = null;
   }
 }
 
-// Fake ValidationService
 class FakeValidationService implements IValidationService {
   public shouldFail = false;
   public validationErrors: any[] = [];
@@ -51,12 +51,9 @@ class FakeValidationService implements IValidationService {
 
   async validate<T>(dtoClass: any, data: any): Promise<T> {
     this.validateWasCalled = true;
-
     if (this.shouldFail) {
       throw new ValidationException('Validation failed', this.validationErrors);
     }
-
-    // Returns data as if it were validated
     return data as T;
   }
 
@@ -72,12 +69,9 @@ class FakeValidationService implements IValidationService {
 // ========================================
 
 function createMockRequest(body: any = {}): Partial<Request> {
-  return {
-    body,
-  };
+  return { body };
 }
 
-// Custom type for our mock response with test properties
 interface MockResponse {
   statusCode: number;
   jsonData: any;
@@ -92,20 +86,19 @@ function createMockResponse(): MockResponse {
     statusCode: 200,
     jsonData: null,
     ended: false,
-    status: function (code: number) {
+    status(code: number) {
       res.statusCode = code;
       return res;
     },
-    json: function (data: any) {
+    json(data: any) {
       res.jsonData = data;
       return res;
     },
-    end: function () {
+    end() {
       res.ended = true;
       return res;
     },
   };
-
   return res;
 }
 
@@ -113,49 +106,46 @@ function createMockResponse(): MockResponse {
 // STEP 3: Setup tests
 // ========================================
 
-describe('CreateClassroomController', () => {
-  let controller: CreateClassroomController;
-  let fakeUseCase: FakeCreateClassroomUseCase;
+describe('UpdateClassroomController', () => {
+
+  let controller: UpdateClassroomController;
+  let fakeUseCase: FakeUpdateClassroomUseCase;
   let fakeValidationService: FakeValidationService;
 
-  // Executed before each test
   beforeEach(() => {
-    fakeUseCase = new FakeCreateClassroomUseCase();
+    fakeUseCase = new FakeUpdateClassroomUseCase();
     fakeValidationService = new FakeValidationService();
-    controller = new CreateClassroomController(
-      fakeUseCase,
-      fakeValidationService
-    );
+    controller = new UpdateClassroomController(fakeUseCase, fakeValidationService);
   });
 
   // ========================================
-  // STEP 4: Success Tests
+  //        STEP 4: Success Tests
   // ========================================
 
-  test('Should create a classroom successfully and return status 201', async () => {
-    // Arrange (Prepare)
-    const requestBody = {
-      classroomNumber: 101,
-      capacity: 30,
-    };
-    const req = createMockRequest(requestBody);
+  test('Should update classroom successfully and return status 200', async () => {
+
+    // Arange
+    const reqBody = { classroomId: '1', classroomNumber: 201, capacity: 40 };
+    const req = createMockRequest(reqBody);
     const res = createMockResponse();
 
-    // Act (Execute)
+    // Act
     await controller.handle(req as Request, res as any);
 
-    // Assert (Verify)
-    expect(res.statusCode).toBe(201);
+    // Assert
+    expect(res.statusCode).toBe(200);
     expect(res.jsonData).toBeDefined();
-    expect(res.jsonData.id).toBe('123');
-    expect(res.jsonData.classroomNumber).toBe(101);
-    expect(res.jsonData.capacity).toBe(30);
+    expect(res.jsonData.id).toBe('1');
+    expect(res.jsonData.classroomNumber).toBe(201);
+    expect(res.jsonData.capacity).toBe(40);
   });
 
+
   test('Should call validationService with correct data', async () => {
-    // Arrange
-    const requestBody = { classroomNumber: 102, capacity: 25 };
-    const req = createMockRequest(requestBody);
+
+    // Arange 
+    const reqBody = { classroomId: '2', classroomNumber: 202, capacity: 35 };
+    const req = createMockRequest(reqBody);
     const res = createMockResponse();
 
     // Act
@@ -165,10 +155,12 @@ describe('CreateClassroomController', () => {
     expect(fakeValidationService.validateWasCalled).toBe(true);
   });
 
-  test('Should call usecase with validated DTO', async () => {
-    // Arrange
-    const requestBody = { classroomNumber: 103, capacity: 20 };
-    const req = createMockRequest(requestBody);
+
+  test('Should call usecase with correct id and DTO', async () => {
+
+    // Arange
+    const reqBody = { classroomId: '3', classroomNumber: 203, capacity: 25 };
+    const req = createMockRequest(reqBody);
     const res = createMockResponse();
 
     // Act
@@ -176,24 +168,25 @@ describe('CreateClassroomController', () => {
 
     // Assert
     expect(fakeUseCase.performWasCalled).toBe(true);
-    expect(fakeUseCase.receivedDto).toEqual(requestBody);
+    expect(fakeUseCase.receivedId).toBe('3');
+    expect(fakeUseCase.receivedDto).toEqual(reqBody);
   });
 
   // ========================================
-  // STEP 5: Validation Error Tests
+  //     STEP 5: Validation Error Tests
   // ========================================
 
   test('Should return 400 when validation fails', async () => {
-    // Arrange
+
+    // Arange
     fakeValidationService.shouldFail = true;
     fakeValidationService.validationErrors = [
       { field: 'classroomNumber', message: 'Classroom number is required' },
     ];
-
     const req = createMockRequest({});
     const res = createMockResponse();
 
-    // Act
+    // act
     await controller.handle(req as Request, res as any);
 
     // Assert
@@ -205,12 +198,8 @@ describe('CreateClassroomController', () => {
   });
 
   test('Should not call usecase when validation fails', async () => {
-    // Arrange
+    // Arange
     fakeValidationService.shouldFail = true;
-    fakeValidationService.validationErrors = [
-      { field: 'classroomNumber', message: 'Invalid' },
-    ];
-
     const req = createMockRequest({});
     const res = createMockResponse();
 
@@ -222,15 +211,15 @@ describe('CreateClassroomController', () => {
   });
 
   // ========================================
-  // STEP 6: Internal Error Tests
+  //      STEP 6: Internal Error Tests
   // ========================================
 
-  test('Should return 500 when unexpected error occurs in usecase', async () => {
-    // Arrange
-    fakeUseCase.shouldFail = true;
-    fakeUseCase.errorToThrow = new Error('Database connection failed');
+  test('Should return 500 when usecase throws an error', async () => {
 
-    const req = createMockRequest({ classroomNumber: 104, capacity: 30 });
+    // Arange
+    fakeUseCase.shouldFail = true;
+    fakeUseCase.errorToThrow = new Error('Database failure');
+    const req = createMockRequest({ classroomId: '4', classroomNumber: 204, capacity: 20 });
     const res = createMockResponse();
 
     // Act
@@ -238,15 +227,15 @@ describe('CreateClassroomController', () => {
 
     // Assert
     expect(res.statusCode).toBe(500);
-    expect(res.jsonData.message).toBe('Database connection failed');
+    expect(res.jsonData.message).toBe('Database failure');
   });
 
-  test('Should return generic message when error has no message', async () => {
-    // Arrange
+  test('Should return generic 500 message when error has no message', async () => {
+
+    // Arange
     fakeUseCase.shouldFail = true;
     fakeUseCase.errorToThrow = {} as Error;
-
-    const req = createMockRequest({ classroomNumber: 105, capacity: 30 });
+    const req = createMockRequest({ classroomId: '5', classroomNumber: 205, capacity: 30 });
     const res = createMockResponse();
 
     // Act
@@ -257,49 +246,3 @@ describe('CreateClassroomController', () => {
     expect(res.jsonData.message).toBe('Internal server error');
   });
 });
-
-// ========================================
-// STEP 7: How to run the tests
-// ========================================
-
-/*
-STEP-BY-STEP EXPLANATION:
-
-1. **Test Doubles (Fakes)**: 
-   - We create fake classes that implement the interfaces
-   - They have properties to control behavior (shouldFail, errorToThrow)
-   - They have properties to verify if they were called (performWasCalled)
-   - reset() method to clear state between tests
-
-2. **Request/Response Mocks**:
-   - Functions that create objects simulating Express Request and Response
-   - Response stores status and data so we can verify later
-
-3. **Setup (beforeEach)**:
-   - Creates new instances before each test
-   - Ensures tests are independent
-
-4. **AAA Pattern (Arrange, Act, Assert)**:
-   - Arrange: Prepare data and configure behavior
-   - Act: Execute the function we're testing
-   - Assert: Verify the result is as expected
-
-5. **Success Tests**:
-   - Verifies it returns 201
-   - Verifies it calls the correct services
-   - Verifies it passes correct data
-
-6. **Error Tests**:
-   - Verifies ValidationException handling
-   - Verifies generic error handling
-   - Verifies code doesn't execute after error
-
-ADVANTAGES of this approach:
-- ✅ No external dependencies
-- ✅ Easy to understand and debug
-- ✅ Full control over behavior
-- ✅ Maintainable and extensible
-- ✅ Fast to execute
-
-To run: npm test or jest CreateClassroomController.test.ts
-*/

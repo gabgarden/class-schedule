@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for controllers/classroom/create-clasroom-controller.ts</title>
+    <title>Code coverage report for controllers/classroom/update-classroom-controller.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">controllers/classroom</a> create-clasroom-controller.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">controllers/classroom</a> update-classroom-controller.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>14/14</span>
             </div>
         
             
@@ -109,14 +109,20 @@
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,6 +144,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
@@ -146,58 +156,60 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Request, Response } from 'express';
-import { CreateClassroomDTO } from '../../domain/dtos/classroom/create-classroom-dto';
-import { ICommandUseCase } from '../../contracts/i-command-uc';
-import { Classroom } from '../../domain/entities/Classroom';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { IUpdateUseCase } from '../../contracts/i-update-uc';
 import { IValidationService } from '../../contracts/i-validation-service';
+import { UpdateClassroomDTO } from '../../domain/dtos/classroom/update-classroom-dto';
+import { Classroom } from '../../domain/entities/Classroom';
 import { ValidationException } from '../../exceptions/validation-exception';
 &nbsp;
-export class CreateClassroomController {
-  private readonly usecase: ICommandUseCase&lt;CreateClassroomDTO, Classroom&gt;;
+export class UpdateClassroomController {
+  private readonly updateClassroomUseCase: IUpdateUseCase&lt;
+    UpdateClassroomDTO,
+    Classroom
+  &gt;;
   private readonly validationService: IValidationService;
 &nbsp;
   constructor(
-    usecase: ICommandUseCase&lt;CreateClassroomDTO, Classroom&gt;,
+    updateClassroomUseCase: IUpdateUseCase&lt;UpdateClassroomDTO, Classroom&gt;,
     validationService: IValidationService
   ) {
-    this.usecase = usecase;
+    this.updateClassroomUseCase = updateClassroomUseCase;
     this.validationService = validationService;
   }
 &nbsp;
-  public async handle(req: Request, res: Response): Promise&lt;Response&gt; {
+  public async handle(req: any, res: any): Promise&lt;Classroom&gt; {
     try {
       const validatedDto =
-        await this.validationService.validate&lt;CreateClassroomDTO&gt;(
-          CreateClassroomDTO,
+        await this.validationService.validate&lt;UpdateClassroomDTO&gt;(
+          UpdateClassroomDTO,
           req.body
         );
 &nbsp;
-      const classroom = await this.usecase.perform(validatedDto);
+      const { classroomId: id } = validatedDto;
 &nbsp;
-      return res.status(201).json(classroom);
+      const updateClassroom = await this.updateClassroomUseCase.perform(
+        id,
+        validatedDto
+      );
+      return res.status(200).json(updateClassroom);
     } catch (error: any) {
-      if (error instanceof ValidationException) {
+      if (error instanceof ValidationException)
         return res.status(400).json({
           message: error.message,
           errors: error.errors,
         });
-      }
 &nbsp;
-      console.error('CreateClassroomController error:', error);
-&nbsp;
-      return res.status(500).json({
-        message: error.message || 'Internal server error',
-      });
+      console.error('UpdateClassroomController error:', error);
+      return res
+        .status(500)
+        .json({ message: error.message || 'Internal server error' });
     }
   }
 }

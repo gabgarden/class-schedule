@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1759205560571" clover="3.2.0">
-  <project timestamp="1759205560573" name="All files">
-    <metrics statements="21" coveredstatements="21" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3" elements="28" coveredelements="28" complexity="0" loc="21" ncloc="21" packages="3" files="3" classes="3"/>
+<coverage generated="1759417939652" clover="3.2.0">
+  <project timestamp="1759417939652" name="All files">
+    <metrics statements="250" coveredstatements="250" conditionals="65" coveredconditionals="65" methods="42" coveredmethods="42" elements="357" coveredelements="357" complexity="0" loc="250" ncloc="250" packages="11" files="30" classes="30"/>
     <package name="controllers.classroom">
-      <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+      <metrics statements="51" coveredstatements="51" conditionals="14" coveredconditionals="14" methods="8" coveredmethods="8"/>
       <file name="create-clasroom-controller.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\controllers\classroom\create-clasroom-controller.ts">
         <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
@@ -20,9 +20,124 @@
         <line num="39" count="2" type="stmt"/>
         <line num="41" count="2" type="stmt"/>
       </file>
+      <file name="delete-classroom-controller.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\controllers\classroom\delete-classroom-controller.ts">
+        <metrics statements="17" coveredstatements="17" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="19" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="32" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="39" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+      </file>
+      <file name="list-classrooms-controller.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\controllers\classroom\list-classrooms-controller.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
+      <file name="update-classroom-controller.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\controllers\classroom\update-classroom-controller.ts">
+        <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
+        <line num="19" count="7" type="stmt"/>
+        <line num="23" count="7" type="stmt"/>
+        <line num="25" count="7" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="38" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="controllers.schedule">
+      <metrics statements="13" coveredstatements="13" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
+      <file name="create-schedule-controller.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\controllers\schedule\create-schedule-controller.ts">
+        <metrics statements="13" coveredstatements="13" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="29" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="controllers.teacher">
+      <metrics statements="37" coveredstatements="37" conditionals="10" coveredconditionals="10" methods="6" coveredmethods="6"/>
+      <file name="create-teacher-controller.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\controllers\teacher\create-teacher-controller.ts">
+        <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="23" count="7" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="32" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+      </file>
+      <file name="delete-teacher-controller.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\controllers\teacher\delete-teacher-controller.ts">
+        <metrics statements="17" coveredstatements="17" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="23" count="6" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="34" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="41" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+      </file>
+      <file name="list-teachers-controller.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\controllers\teacher\list-teachers-controller.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
     </package>
     <package name="domain.dtos.classroom">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="create-classroom-dto.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\dtos\classroom\create-classroom-dto.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -30,15 +145,234 @@
         <line num="5" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
       </file>
-    </package>
-    <package name="exceptions">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="validation-exception.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\exceptions\validation-exception.ts">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="delete-classroom-dto.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\dtos\classroom\delete-classroom-dto.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+      <file name="update-classroom-dto.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\dtos\classroom\update-classroom-dto.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.dtos.teacher">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="create-teacher-dto.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\dtos\teacher\create-teacher-dto.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+      <file name="delete-teacher-dto.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\dtos\teacher\delete-teacher-dto.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.entities">
+      <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="Classroom.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\entities\Classroom.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="6" count="14" type="stmt"/>
+        <line num="7" count="14" type="stmt"/>
+      </file>
+      <file name="Schedule.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\entities\Schedule.ts">
+        <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+      </file>
+      <file name="Teacher.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\entities\Teacher.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="7" count="14" type="stmt"/>
+        <line num="8" count="14" type="stmt"/>
+        <line num="9" count="14" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.enums">
+      <metrics statements="26" coveredstatements="26" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <file name="schedule-status-enum.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\enums\schedule-status-enum.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+      <file name="subjetcs-enum.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\enums\subjetcs-enum.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+      </file>
+      <file name="time-slot-period-enum.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\enums\time-slot-period-enum.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.usecases.classroom">
+      <metrics statements="26" coveredstatements="26" conditionals="6" coveredconditionals="6" methods="8" coveredmethods="8"/>
+      <file name="create-clasroom-uc.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\usecases\classroom\create-clasroom-uc.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="16" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+      </file>
+      <file name="delete-classroom-uc.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\usecases\classroom\delete-classroom-uc.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="16" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+      </file>
+      <file name="list-classrooms-us.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\usecases\classroom\list-classrooms-us.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+      </file>
+      <file name="update-classroom-uc.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\usecases\classroom\update-classroom-uc.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="19" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.usecases.schedule">
+      <metrics statements="25" coveredstatements="25" conditionals="18" coveredconditionals="18" methods="2" coveredmethods="2"/>
+      <file name="create-schedule-uc.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\usecases\schedule\create-schedule-uc.ts">
+        <metrics statements="25" coveredstatements="25" conditionals="18" coveredconditionals="18" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="23" count="7" type="stmt"/>
+        <line num="24" count="7" type="stmt"/>
+        <line num="25" count="7" type="stmt"/>
+        <line num="26" count="7" type="stmt"/>
+        <line num="31" count="7" type="stmt"/>
+        <line num="34" count="7" type="cond" truecount="4" falsecount="0"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="40" count="7" type="stmt"/>
+        <line num="41" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="46" count="6" type="stmt"/>
+        <line num="47" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="51" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="56" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="63" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain.usecases.teacher">
+      <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
+      <file name="create-teacher-uc.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\usecases\teacher\create-teacher-uc.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+      </file>
+      <file name="delete-teacher-uc.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\usecases\teacher\delete-teacher-uc.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="16" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+      </file>
+      <file name="list-teachers-uc.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\domain\usecases\teacher\list-teachers-uc.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="2" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="exceptions">
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="not-found-exception.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\exceptions\not-found-exception.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+      </file>
+      <file name="schedule-conflict-exception.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\exceptions\schedule-conflict-exception.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+      <file name="validation-exception.ts" path="C:\Users\garde\OneDrive\Desktop\2025.1\testes-automatizados\class-schedule\src\exceptions\validation-exception.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="8" type="stmt"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="4" count="8" type="stmt"/>
       </file>
     </package>
   </project>
