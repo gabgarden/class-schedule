@@ -18,7 +18,7 @@ export class FindByIdTeacherController {
     this.validationService = validationService;
   }
 
-  public async handle(req: Request, res: Response): Promise<Response> {
+  public async handle(req: Request, res: Response): Promise<void> {
     try {
       const validatedDto =
         await this.validationService.validate<FindByIdTeacherDTO>(
@@ -30,23 +30,26 @@ export class FindByIdTeacherController {
 
       const teacher = await this.usecase.perform(id);
 
-      return res.status(200).json(teacher);
+      res.status(200).json({
+        success: true,
+        data: teacher,
+      });
     } catch (error: any) {
       if (error instanceof ValidationException) {
-        return res.status(400).json({
+        res.status(400).json({
           message: error.message,
           errors: error.errors,
         });
       }
 
       if (error instanceof NotFoundException) {
-        return res.status(404).json({
+        res.status(404).json({
           message: error.message,
         });
       }
 
       console.error('FindByIdTeacherController error:', error);
-      return res.status(500).json({
+      res.status(500).json({
         message: error.message || 'Internal Server Error',
       });
     }
