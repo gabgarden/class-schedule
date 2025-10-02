@@ -9,6 +9,7 @@ import { CreateScheduleRoute } from './schedule/create-schedule-route';
 import { UpdateClassroomRoute } from './classroom/update-classroom-route';
 import { FindByIdClassroomRoute } from './classroom/find-byid-classroom-route';
 import { FindByIdTeacherRoute } from './teacher/find-byid-teacher-route';
+import { ListSchedulesRouter } from './schedule/list-schedules-route';
 
 export default function router() {
   const mainRouter = Router();
@@ -28,6 +29,7 @@ export default function router() {
   mainRouter.use('/classrooms', FindByIdClassroomRoute()); // GET /classrooms/:id
 
   //Schedules routes
+  mainRouter.use('/schedules', ListSchedulesRouter());
   mainRouter.use('/schedules', CreateScheduleRoute());
   return mainRouter;
 }
